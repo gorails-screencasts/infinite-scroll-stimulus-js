@@ -1,0 +1,8 @@
+<% @posts.each do |post| %>
+  <%= content_tag :div, id: dom_id(post), class: ["card", "card-body", "mb-2", dom_class(post)] do %>
+    <div>
+      <%= post.id %>
+      <%= link_to 'Show', post %>
+    </div>
+  <% end %>
+<% end %>

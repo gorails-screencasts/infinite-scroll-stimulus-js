@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_21_191553) do
+ActiveRecord::Schema.define(version: 2020_04_21_191804) do
 
   create_table "announcements", force: :cascade do |t|
     t.datetime "published_at"
@@ -39,6 +39,11 @@ ActiveRecord::Schema.define(version: 2020_04_21_191553) do
     t.string "action"
     t.bigint "notifiable_id"
     t.string "notifiable_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

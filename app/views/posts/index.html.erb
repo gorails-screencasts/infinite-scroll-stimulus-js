@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Posts</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_post_path, class: 'btn btn-primary' do %>
+    Add New Post
+  <% end %>
+  </div>
+</div>
+
+<div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
+  <div data-target="infinite-scroll.entries">
+    <%= render "posts" %>
+  </div>
+
+  <div data-target="infinite-scroll.pagination">
+    <%== pagy_nav @pagy %>
+  </div>
+</div>

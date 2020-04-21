@@ -1,0 +1,29 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <% if post.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', post, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if post.persisted? %>
+      <%= link_to "Cancel", post, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", posts_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>
