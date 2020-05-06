@@ -20,6 +20,9 @@ export default class extends Controller {
   }
 
   loadMore(url) {
+    if (this.loading) { return }
+    this.loading = true
+
     Rails.ajax({
       type: 'GET',
       url: url,
@@ -27,6 +30,7 @@ export default class extends Controller {
       success: (data) => {
         this.entriesTarget.insertAdjacentHTML('beforeend', data.entries)
         this.paginationTarget.innerHTML = data.pagination
+        this.loading = false
       }
     })
   }
