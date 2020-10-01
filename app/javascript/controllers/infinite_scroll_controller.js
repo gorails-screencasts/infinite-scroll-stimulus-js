@@ -39,6 +39,8 @@ export default class extends Controller {
       success: (data) => {
         this.entriesTarget.insertAdjacentHTML('beforeend', data.entries)
         this.paginationTarget.innerHTML = data.pagination
+        const page_query = url.split(window.location.origin)[1]
+        window.history.replaceState('data', '', page_query); 
       }
     })
   }
